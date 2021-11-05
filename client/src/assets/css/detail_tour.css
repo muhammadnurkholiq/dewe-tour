@@ -19,6 +19,10 @@
     justify-content: space-between;
 }
 
+.detail_tour .img-group .img-child .img {
+    width: 25vw;
+}
+
 .detail_tour .detail-title {
     font-weight: 700;
 }

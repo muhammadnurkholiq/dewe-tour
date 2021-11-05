@@ -43,9 +43,9 @@ export default function DetailTour(props) {
                     </div>
 
                     <div className="img-child">
-                            <Image src="http://localhost:3000/images/img-content2.png" />
-                            <Image src="http://localhost:3000/images/img-content3.png" />
-                            <Image src="http://localhost:3000/images/img-content4.png" />
+                            <Image className="img" src="http://localhost:3000/images/img-content2.png" />
+                            <Image className="img" src="http://localhost:3000/images/img-content3.png" />
+                            <Image className="img" src="http://localhost:3000/images/img-content4.png" />
                     </div>
                 </div>
 
