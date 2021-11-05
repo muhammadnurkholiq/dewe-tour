@@ -1,0 +1,156 @@
+/* jumbotron */
+.jumbotron {
+    background-image: url(../images/bg-beach.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 65vh;
+    margin-top: -14vh;
+    box-sizing: border-box; 
+}
+
+.jumbotron .img-cover {
+    background-image: url(../images/bg-beach-cover.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 67vh !important;
+    margin-top: -52.5vh !important;
+    box-sizing: border-box;
+}
+
+.jumbotron .container h1  {
+    color: white;
+    font-weight: 700;
+    padding-top: 18vh;
+    font-size: 50px;
+    position: relative;
+}
+
+.jumbotron .container h2  {
+    color: white;
+    font-weight: 100;
+    font-size: 50px;
+}
+
+.jumbotron .container label  {
+    margin-top: 5vh;
+    color: white;
+}
+/* ending jumbotron */
+
+/* info-card */
+.info-card {
+    margin-top: -10vh;
+    border-radius: 20px;
+}
+
+.info-card .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info-card .card {
+    width: 14vw !important; 
+    text-align: center;
+    padding: 20px 5px 10px 5px;
+    box-sizing: border-box;
+}
+
+.info-card img {
+    width: 70px;
+    margin: auto;
+}
+
+.info-card .title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: -10px;
+}
+
+.info-card .desc {
+    color: #878787;
+    font-size: 14px;
+}
+/* ending info-card */
+
+/* tour */
+.tour {
+    margin-top: 10vh;
+    text-decoration: none !important;
+}
+
+.tour .cards {
+    margin: 6vh auto;
+    width: 66vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between !important;
+}
+
+.tour .cards .card {
+    width: 20vw;
+    height: 44vh;
+    padding: 7px;
+    box-sizing: border-box;
+    margin: 2vh 1vw 0 1vw;
+}
+
+.tour .cards .card .card-img {
+    width: 100%;
+}
+
+
+.tour .cards .card .img-tour {
+    overflow: hidden;
+}
+
+.tour .cards .card .card-img:hover {
+    transform: scale(1.2);
+    transition: 2s;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.tour .cards .card .card-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: black;
+}
+
+.tour .cards .card .desc {
+    display: flex;
+    margin-bottom: -2vh;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tour .cards .card .desc .price {
+    font-size: 14px;
+    color: #ffaf00;
+    font-weight: 600;
+}
+
+.tour .cards .card .desc .location {
+    font-size: 14px;
+    color: #969696;
+    font-weight: 600;
+}
+
+.tour .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tour .header h1 {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.tour .header a {
+    padding: 8.5px 20px;
+    height: 6vh;
+}
+/* ending tour */

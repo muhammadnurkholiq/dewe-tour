@@ -1,0 +1,163 @@
+.profile .navbar {
+    background-image: url(../images/bg-beach.jpg);
+    height: 15vh;
+    margin-top: -15vh;
+    position: relative;
+    z-index: -1;
+}
+
+/* profile  */
+.profile-card {
+    width: 60%;
+    margin: 10vh auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.profile-card .profile-info {
+    width: 60%;
+}
+
+.profile-card .profile-info h1{
+    font-weight: 600;
+}
+
+.profile-card .profile-info .list-info {
+    margin-top: 7vh;
+}
+
+.profile-card .profile-info .list-info .img {
+    width: 40px;
+    height: 40px;
+    margin: -0.3vh 1vw 0 0;
+    color: #8A8C90;
+}
+
+.profile-card .profile-info .list-info h1 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.profile-card .profile-info .list-info p {
+    font-size: 10px;
+    font-weight: 600;
+    color: #8A8C90;
+}
+
+.profile-card .profile-info .list-info .names {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-card .profile-info .list-info .emails {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-card .profile-info .list-info .phones {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-card .profile-info .list-info .locations {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-card .profile-img {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-card .profile-img a {
+    margin-top: 2vh;
+    font-weight: 600;
+}
+
+.payments .card-payment {
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10vh;
+    padding: 20px;
+}
+
+.payments {
+    margin-bottom: 10vh;
+}
+
+.payments .card-payment .info1 {
+    margin-top: 5vh !important;
+}
+
+.payments .card-payment .info1 h3 {
+    font-weight: 700;
+}
+
+.payments .card-payment .info1 .statusPayment {
+    width: 11vw;
+    text-align: center;
+    padding: 5px 0 1px 0;
+    background-color: #aef5a365;
+    box-sizing: border-box
+}
+
+.payments .card-payment .info1 .statusPayment h6 {
+   color: #3CF71E;
+   font-weight: 700;
+}
+
+.payments .card-payment .info2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 13vh;
+}
+
+.payments .card-payment .info2 h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.payments .card-payment .info2 p {
+    font-size: 15px;
+    color: #a5a4a4;
+}
+
+.payments .card-payment .info3 {
+    text-align: center;
+}
+
+.payments .card-payment .info3 h1 {
+    font-weight: 700;
+}
+
+.payments .card-payment .info3 span {
+    font-weight: 700;
+    color: #868686;
+}
+
+.payments .card-payment .info3 .img-code {
+    margin-top: 5vh;
+}
+
+.payments .card-payment .info3 p {
+    color: #aaa9a9;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.payments-list table td {
+    color: #bbbbbb;
+}
+
+.payments-list .total-payment {
+    color: #ff1212;
+}
+/* ending profile  */

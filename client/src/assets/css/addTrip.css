@@ -1,0 +1,99 @@
+.addTrip .navbar {
+    background-image: url(../images/bg-beach.jpg);
+    height: 15vh;
+    margin-top: -15vh;
+    position: relative;
+    z-index: -1;
+}
+
+.addTrip .container {
+    margin-top: 10vh;
+}
+
+.addTrip .container h1{
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.addTrip .container .forms {
+    margin-top: 1vh;
+    width: 70vw !important;
+    position: relative;
+    float: right;
+}
+
+.addTrip .container .forms .txtLabel {
+    font-weight: 700;
+    margin-top: 2vh;
+}
+
+.addTrip .container .forms .txtInput {
+    background-color: #d3d2d2;
+}
+
+.addTrip .container .forms .txtInput:focus {
+    background-color: white;
+}
+
+.addTrip .container .forms h1 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 3vh;
+}
+
+.addTrip .container .forms .duration {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3vh;
+}
+
+.addTrip .container .forms .duration .day {
+    display: flex;
+    flex-direction: row;
+    margin-right: 5vw;
+}
+
+.addTrip .container .forms .duration .day .txtLabel{
+    margin-top: 5px;
+}
+
+.addTrip .container .forms .duration .day .txtInput {
+    margin-right: 2vw;
+}
+
+.addTrip .container .forms .duration .night {
+    display: flex;
+    flex-direction: row;
+}
+
+.addTrip .container .forms .duration .night .txtLabel{
+    margin-top: 5px;
+}
+
+.addTrip .container .forms .duration .night .txtInput {
+    margin-right: 2vw;
+}
+
+.addTrip .container .forms .txtArea {
+    background-color: #d3d2d2;
+    resize: none;
+}
+
+.addTrip .container .forms .txtArea:focus {
+    background-color: white;
+}
+
+.addTrip .container .forms .txtFile {
+    width: 20vw;
+    color: #FFAF00;
+    background-color: #d3d2d2;
+}
+
+.addTrip .container .forms .btn {
+    color: white;
+    background-color: #FFAF00;
+    border: none;
+    padding: 1vh 5vw;
+    margin: 8vh 0vw 0 28vw;
+}

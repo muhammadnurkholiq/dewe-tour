@@ -1,0 +1,128 @@
+.payment .navbar {
+    background-image: url(../images/bg-beach.jpg);
+    height: 15vh;
+    margin-top: -15vh;
+    position: relative;
+    z-index: -1;
+}
+
+.payment .card-payment {
+    background-color: white;
+    border-radius: 10px;
+    margin: 10vh auto;
+    padding: 20px;
+    width: 75vw;
+}
+
+.payment .card-payment .info1 {
+    margin-top: 5vh !important;
+}
+
+.payment .card-payment .info1 h3 {
+    font-weight: 700;
+}
+
+.payment .card-payment .info1 .status-payment {
+    width: 11vw;
+    text-align: center;
+    padding: 5px 0 1px 0;
+    background-color: #fae3c0c5;
+    box-sizing: border-box
+}
+
+.payment .card-payment .info1 .status-payment h6 {
+    color: #FF9900;
+}
+
+.payment .card-payment .info-2 {
+    margin-left: -5vw;
+}
+
+.payment .card-payment .info2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 20vh;
+}
+
+.payment .card-payment .info2 h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.payment .card-payment .info2 p {
+    font-size: 15px;
+    color: #a5a4a4;
+}
+
+.payment .card-payment .info-3 {
+    margin-left: 3vw;
+}
+
+.payment .card-payment .info3 {
+    text-align: center;
+}
+
+.payment .card-payment .info3 h1 {
+    font-weight: 700;
+}
+
+.payment .card-payment .info3 span {
+    font-weight: 700;
+    color: #868686;
+}
+
+.payment .card-payment .info3 .img-pay {
+    width: 15vw;
+    height: 40vh;
+    margin-bottom: 1vh;
+    margin-left: 0.5vw;
+}
+
+.payment .card-payment .info3 p {
+    color: #aaa9a9;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.payment-list table td {
+    color: #bbbbbb;
+}
+
+.payment-list .total-payment {
+    color: #ff1212;
+}
+
+.payment-pay .btn {
+    padding: 10px 60px;
+    width: 15vw !important;
+    margin: -5vh 0 10vh 64.5vw;
+}
+
+.modal1 {
+    margin-top: 13%;
+}
+
+.modal1 .modal-content{
+   width: 1vw !important;
+   margin-left: -2vw;
+}
+
+.modal1 .modal-title {
+    background-color: white;
+    width: 40vw;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.modal1 .modal-title h1{
+    font-size: 20px;
+    text-align: center;
+}
+
+.modal1 .modal-title h1 a {
+    color: black;
+    font-weight: 700;
+}
