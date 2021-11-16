@@ -5,6 +5,7 @@ import "../../assets/css/home.css";
 import Jumbotron from "../../components/jumbotron";
 import InfoCard from "../../components/info_card";
 import Tour from "../../components/user/tour";
+import Footer from "../../components/footer";
 
 export default function Home() {
     const title = "Home"
@@ -24,6 +25,10 @@ export default function Home() {
             {/* Tour */}
             <Tour />
             {/* ending Tour */}
+
+            {/* footer  */}
+            <Footer />
+            {/* ending footer  */}
         </div>
     );
 }

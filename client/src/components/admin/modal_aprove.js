@@ -3,7 +3,7 @@ import "../../assets/css/modal_aprove.css"
 
 function ModalAprove() {
     return (
-        <div className="payment">
+        <div className="payment1">
             
             <div className="container">
 
@@ -61,26 +61,26 @@ function ModalAprove() {
 
                     <div class="payment-list">
                         <table class="table">
-                            <thead class="table-borderless">
+                            <thead>
                                 <th scope="col">No</th>
                                 <th scope="col" width="300px">Full Name</th>
                                 <th scope="col" width="200px" >Gender</th>
                                 <th scope="col" width="200px">Phone</th>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr className="t-content">
                                     <td>1</td>
                                     <td>Muhammad Nurkholiq</td>
                                     <td>Male</td>
                                     <td>081234567890</td>
-                                    <th scope="row" class="text-right">Qty</th>
-                                    <th scope="row" class="text-right">:</th>
+                                    <th scope="row">Qty</th>
+                                    <th scope="row">:</th>
                                     <th scope="row">1</th>
                                 </tr>
-                                <tr>
-                                    <th scope="row" colspan="5" class="text-right">Total</th>
-                                    <th scope="row" class="text-right">:</th>
-                                    <th scope="row" class="total-payment"><span>IDR. </span>12,398,000</th>
+                                <tr className="table-bot">
+                                    <th scope="row" colspan="5" className="total">Total</th>
+                                    <th scope="row">:</th>
+                                    <th scope="row" class="total-payment" width="150px"><span>IDR. </span>12,398,000</th>
                                 </tr>
                             </tbody>
                         </table>

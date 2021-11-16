@@ -2,6 +2,7 @@ import React from 'react';
 import "../../assets/css/profile.css";
 import { Image } from 'react-bootstrap';
 import PaymentCard from "../../components/user/profile_card"
+import Footer from "../../components/footer";
 
 export default function Profile() {
     const title = "Profile"
@@ -65,6 +66,9 @@ export default function Profile() {
                 </div>   
 
             </div>
+            {/* footer  */}
+            <Footer />
+            {/* ending footer  */}
         </div>
     )
 }

@@ -4,26 +4,52 @@ export const UserContext = createContext();
 
 const initialState = {
     isLogin: false,
-    user: {}
+    user: {
+        fullname: "",
+        email: "",
+        gender: "",
+        phone: "",
+        address: "",
+        role: "",
+        avatar: "",
+    },
 }
 
-const reducer = (state, action) => {
-    const { type, payload } = action
+// create context
+// create context
+export const AuthContext = createContext();
 
-    switch (type) {
-        case "LOGIN_SUCCESS":
-            return {
-                isLogin: true,
-                user: payload
-            }
-        case "LOGOUT":
-            return {
-                isLogin: false,
-                user: {}
-            }
-        default:
-            throw new Error();
-    }
+// reducer use to handle complex logic, use wisely
+function reducer(state, action) {
+  const { type, payload } = action;
+  switch (type) {
+    case "AUTH_SUCCESS":
+    case "LOGIN_SUCCESS":
+      localStorage.setItem("token", payload.token);
+      return {
+        isLoading: false,
+        isLogin: true,
+        user: payload,
+      };
+    case "AUTH_ERROR":
+    case "LOGOUT":
+      localStorage.removeItem("token");
+      return {
+        isLoading: false,
+        isLogin: false,
+        user: {
+          fullname: "",
+          email: "",
+          gender: "",
+          phone: "",
+          address: "",
+          role: "",
+          avatar: "",
+        },
+      };
+    default:
+      throw new Error("type doesn't match cases");
+  }
 }
 
 export const UserContextProvider = ({ children }) => {

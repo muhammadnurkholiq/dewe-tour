@@ -2,6 +2,8 @@ import React, { useState} from 'react';
 import { Navbar, Nav, Button, Modal, Form, Dropdown, Image } from 'react-bootstrap';
 import "../assets/css/header.css"
 
+import { API } from "../config/api";
+
 function Header() {
     const [login, setLogin] = useState(false);
     const [register, setRegister] = useState(false);
@@ -12,7 +14,9 @@ function Header() {
     const handleCloseRegister = () => setRegister(false);
     const handleShowRegister = () => setRegister(true);
 
-    function UserPage() {
+    
+
+    function UserNav() {
         return(
             <Navbar expand="lg">
                 <div className="container">
@@ -43,8 +47,39 @@ function Header() {
             </Navbar>  
         )
     }
+
+    function AdminNav() {
+        return(
+            <Navbar expand="lg">
+                <div className="container">
+                    <Navbar.Brand href="/"><img
+                        src="http://localhost:3000/images/brand-home.png"
+                        className="d-inline-block align-top"
+                        alt="React Bootstrap logo"
+                    />
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="ms-auto buttons">
+                            <Dropdown className="drop">
+                                <Dropdown.Toggle className="drop-toggle">
+                                    <Image src="http://localhost:3000/images/user1.jpg" className="drop-img" />
+                                </Dropdown.Toggle>
+                    
+                                <Dropdown.Menu className="drop-menu">
+                                    <Dropdown.Item href="/ListTransactionAdmin" className="drop-item"><Image src="http://localhost:3000/images/icon-trip.png" className="icon" />Trip</Dropdown.Item>
+                                    <Dropdown.Divider className="divider" />
+                                    <Dropdown.Item href="/" className="drop-item"><Image src="http://localhost:3000/images/icon-logout.png" className="icon" />Log Out</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </Nav>
+                    </Navbar.Collapse>
+                </div>
+            </Navbar>  
+        )
+    }
     
-    function GuestPage() {
+    function GuestNav() {
         return(
             <Navbar expand="lg">
                 <div className="container">
@@ -70,9 +105,10 @@ function Header() {
     
     const renderPage = () => {
         if(isLogIn) {
-            return <UserPage />
+            return <UserNav />  
+            // return <AdminNav />
         } else {
-            return <GuestPage />
+            return <GuestNav />
         }
     }
 
@@ -133,12 +169,20 @@ function Header() {
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label className="label">Phone</Form.Label>
-                            <Form.Control type="number" className="input" />
+                            <Form.Control type="number  " className="input" />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Label>Address</Form.Label>
+                            <Form.Label className="label">Address</Form.Label>
                             <Form.Control as="textarea" className="textarea" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="image">
+                            <h1 className="label">Image</h1>
+                            <div className="uploadProfile">
+                                <Form.Label className="uploadBtn">Attache Here <Image src="http://localhost:3000/images/icon-upload.png" className="iconProfile" /></Form.Label>
+                                <Form.Control type="file" hidden />
+                            </div>
                         </Form.Group>
                     </div>
 

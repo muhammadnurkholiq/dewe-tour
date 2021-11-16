@@ -4,6 +4,7 @@ import "../../assets/css/detail_tour.css";
 import tour from "../../list-tour.json";
 import { useState } from 'react';
 import NumberFormat from "react-number-format";
+import Footer from "../../components/footer";
 
 export default function DetailTour(props) {
     const title = "Detail Tour"
@@ -11,16 +12,14 @@ export default function DetailTour(props) {
 
     const tourDetail = tour.find(({id})=>id===props.match.params.id_tour);
 
+    // increment&decrement
     const [count, setCount] = useState(1);
-
     const increment = () => {
-        setCount((prevState) => prevState + 1);
+        setCount(count + 1);
     };
-
     const decrement = () => {
         setCount(count <= 1 ? count : count - 1);
     };
-
     const price = tourDetail.price * count;
 
     return (
@@ -129,6 +128,9 @@ export default function DetailTour(props) {
                 </div>
 
             </div>
+            {/* footer  */}
+            <Footer />
+            {/* ending footer  */}
         </div>
     )
 }

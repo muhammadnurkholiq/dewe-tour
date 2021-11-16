@@ -1,13 +1,13 @@
 import { Form, Button } from "react-bootstrap";
 import "../../assets/css/addTrip.css";
-import Header2 from "../../components/header2";
 
 function Add_qty() {
   return (
     <div className="addTrip">
-      {/* header  */}
-      <Header2 />
-      {/* ending header  */}
+      
+      <div expand="lg" className="navbar">
+        <div className="img-cover"></div>
+      </div>
 
       <div className="container">
         <h1>Add Trip</h1>

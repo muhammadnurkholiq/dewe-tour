@@ -1,130 +1,137 @@
-const { user, profile } = require("../../models");
+// import user models 
+const {user} = require("../../models");
 
-exports.addUsers = async (req, res) => {
+// add user 
+exports.getUser = async (req, res) => {
+  const { id } = req.params;
+
   try {
-    await user.create(req.body);
+    let data = await user.findOne({
+      where: {
+        id,
+      },
+      attributes: {
+        exclude: ["createdAt", "updatedAt", "password"],
+      },
+    });
+
+    data = JSON.parse(JSON.stringify(data));
+    const avatar = data.avatar
+      ? process.env.PATH_AVATAR_IMAGES + data.avatar
+      : process.env.PATH_AVATAR_IMAGES + "no-photo.jpg";
+
+    const newData = {
+      ...data,
+      avatar: avatar,
+    };
 
     res.send({
       status: "success",
-      message: "Add user finished",
+      data: newData,
     });
   } catch (error) {
     console.log(error);
-    res.send({
+    res.status(500).send({
       status: "failed",
-      message: "Server Error",
+      message: "Server error",
     });
   }
 };
 
+// get all user
 exports.getUsers = async (req, res) => {
   try {
-    const users = await user.findAll({
-      include: {
-        model: profile,
-        as: "profile",
-        attributes: {
-          exclude: ["createdAt", "updatedAt", "idUser"],
-        },
-      },
+    let data = await user.findAll({
       attributes: {
-        exclude: ["password", "createdAt", "updatedAt"],
+        exclude: ["createdAt", "updatedAt", "password"],
       },
+    });
+
+    data = JSON.parse(JSON.stringify(data));
+    const newData = data.map((item) => {
+      const avatar = item.avatar
+        ? process.env.PATH_AVATAR_IMAGES + item.avatar
+        : process.env.PATH_AVATAR_IMAGES + "no-photo.jpg";
+
+      return {
+        id: item.id,
+        email: item.email,
+        fullname: item.fullname,
+        phone: item.phone,
+        address: item.address,
+        gender: item.gender,
+        avatar: avatar,
+      };
     });
 
     res.send({
       status: "success",
-      data: {
-        users,
-      },
+      data: newData,
     });
   } catch (error) {
     console.log(error);
-    res.send({
+    res.status(500).send({
       status: "failed",
-      message: "Server Error",
+      message: "Server error",
     });
   }
 };
 
-exports.getUser = async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    const data = await user.findOne({
-      where: {
-        id,
-      },
-      include: {
-        model: profile,
-        as: "profile",
-        attributes: {
-          exclude: ["createdAt", "updatedAt", "idUser"],
-        },
-      },
-      attributes: {
-        exclude: ["password", "createdAt", "updatedAt"],
-      },
-    });
-
-    res.send({
-      status: "success",
-      data: {
-        user: data,
-      },
-    });
-  } catch (error) {
-    console.log(error);
-    res.send({
-      status: "failed",
-      message: "Server Error",
-    });
-  }
-};
-
+// update user
 exports.updateUser = async (req, res) => {
-  try {
-    const { id } = req.params;
+  const {id} = req.params
 
+  try {
     await user.update(req.body, {
       where: {
-        id,
-      },
+        id
+      }
     });
 
-    res.send({
-      status: "success",
-      message: `Update user id: ${id} finished`,
-      data: req.body,
+    let updatedData = await user.findOne({
+      where: {
+        id
+      }
     });
+
+    updatedData = JSON.parse(JSON.stringify(updatedData));
+
+    res.send({
+      status: "Success",
+      message: "Update user success",
+      data: {
+        user: updatedData
+      }
+    })
   } catch (error) {
     console.log(error);
-    res.send({
-      status: "failed",
-      message: "Server Error",
-    });
+    res.status(500).send({
+      status: "Failed",
+      message: "Server error"
+    })
   }
-};
+}
 
+// delete user 
 exports.deleteUser = async (req, res) => {
-  try {
-    const { id } = req.params;
+  const {id} = req.params
 
+  try {
     await user.destroy({
       where: {
-        id,
-      },
+        id
+      }
     });
 
     res.send({
-      status: "success",
-      message: `Delete user id: ${id} finished`,
+      status: "Success",
+      message: "Delete data success"
     });
   } catch (error) {
     console.log(error);
     res.send({
-      status: "failed",
-      message: "Server Error",
-    });
+      status: "Failed",
+      message: "Server error"
+    })
   }
-};
+}

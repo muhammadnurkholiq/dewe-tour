@@ -18,7 +18,9 @@
 
 .addTrip .container .forms {
     margin-top: 1vh;
-    width: 70vw !important;
+    display: flex;
+    flex-direction: column;
+    width: 82vw !important;
     position: relative;
     float: right;
 }
@@ -36,6 +38,10 @@
     background-color: white;
 }
 
+.addTrip .container .forms .txtInput option:first {
+    background-color: rgb(104, 8, 8);
+}
+
 .addTrip .container .forms h1 {
     font-size: 16px;
     font-weight: 700;
@@ -45,7 +51,7 @@
 .addTrip .container .forms .duration {
     display: flex;
     flex-direction: row;
-    margin-top: 3vh;
+    margin-top: -0.5vh;
 }
 
 .addTrip .container .forms .duration .day {
@@ -90,10 +96,35 @@
     background-color: #d3d2d2;
 }
 
+.addTrip .container .forms .uploadImg {
+    width: 14vw;
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFAF00;
+    background-color: #d3d2d2;
+    padding: 9px 0 0 7px;
+    border: 1px solid #868686;
+    border-radius: 5px;
+}
+
+.addTrip .container .forms .uploadImg .icon {
+    width: 25px;
+    margin-left: 5.4vw;
+}
+
+.addTrip .container .forms .uploadImg:hover{
+    cursor: pointer;
+}
+
+.addTrip .container .forms .uploadBtn:hover{
+    cursor: pointer;
+}
+
 .addTrip .container .forms .btn {
     color: white;
     background-color: #FFAF00;
     border: none;
     padding: 1vh 5vw;
-    margin: 8vh 0vw 0 28vw;
+    margin-top: 5vh;
+    align-self: center;
 }

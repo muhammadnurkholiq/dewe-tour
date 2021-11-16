@@ -4,6 +4,7 @@ import "../../assets/css/payment.css";
 
 // Component 
 import PaymentCard from '../../components/user/payment_card';
+import Footer from "../../components/footer";
 
 export default function Payment() {
     const title = "Payment"
@@ -40,6 +41,9 @@ export default function Payment() {
                 </Modal>
             </div>
             
+            {/* footer  */}
+            <Footer />
+            {/* ending footer  */}  
         </div>
     )
 }

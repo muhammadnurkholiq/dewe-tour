@@ -2,9 +2,8 @@ import { Form, FormControl, Button} from 'react-bootstrap';
 
 function Jumbotron() {
     return (
-
         // Jumbotron
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid" >
         <div class="container">
             <h1 className="title"><span>Explore</span></h1>
             <h2>your amazing city together</h2>

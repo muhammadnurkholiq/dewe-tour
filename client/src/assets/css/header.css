@@ -132,3 +132,32 @@ body {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.modalHeader .uploadProfile {
+    background-color: #eaeaea !important; 
+    border: 1px solid yellow !important;
+    width: 30%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+    padding-left: 5px;
+}
+
+.modalHeader .uploadProfile:hover {
+    box-shadow: -1px 0px 3px 3px rgba(0,0,0,0.15);
+}
+
+.modalHeader .uploadProfile .uploadBtn {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.modalHeader .uploadProfile .uploadBtn:hover {
+    cursor: pointer;
+}
+
+.modalHeader .iconProfile {
+    margin-left: 20px;
+    width: 15%;
+}

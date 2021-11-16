@@ -8,10 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { UserContextProvider } from './context/userContext'
 
 import Header from "./components/header";
-import Footer from "./components/footer";
 
 // favicon
-import Favicon from './assets/DumbMerch.png'
+import Favicon from './assets/favicon.ico'
 const favicon = document.getElementById('idFavicon')
 favicon.setAttribute('href', Favicon)
 
@@ -21,7 +20,6 @@ ReactDOM.render(
     <UserContextProvider>
       <Header />
         <App />
-      <Footer />
     </UserContextProvider>
   </React.StrictMode>,
   document.getElementById('root')

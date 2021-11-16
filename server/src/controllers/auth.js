@@ -1,53 +1,69 @@
-// import model
 const { user } = require("../../models");
 
-// import joi validation
 const Joi = require("joi");
-// import bcrypt
 const bcrypt = require("bcrypt");
-//import jsonwebtoken
 const jwt = require("jsonwebtoken");
 
+// register 
 exports.register = async (req, res) => {
-  // our validation schema here
+  // create validation schema
   const schema = Joi.object({
-    name: Joi.string().min(3).required(),
-    email: Joi.string().email().min(6).required(),
-    password: Joi.string().min(6).required(),
+    email: Joi.string().email().min(10).required(),
+    password: Joi.string().min(5).required(),
+    fullname: Joi.string().min(5).required(),
+    phone: Joi.number().min(10).required(),
+    address: Joi.string().min(10).required(),
+    gender: Joi.string().min(4).required(),
   });
 
-  // do validation and get error object from schema.validate
   const { error } = schema.validate(req.body);
 
-  // if error exist send validation error message
-  if (error)
+  if (error) {
     return res.status(400).send({
+      status: "Failed",
       error: {
         message: error.details[0].message,
       },
     });
+  }
 
   try {
-    // we generate salt (random value) with 10 rounds
+    const userData = await user.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+
+    if (userData) {
+      return res.status(400).send({
+        status: "Failed",
+        message: "Email already exist",
+      });
+    }
+
     const salt = await bcrypt.genSalt(10);
-    // we hash password from request with salt
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    // const avatar = req.files ? req.files.avatar[0].filename : null;
 
     const newUser = await user.create({
-      name: req.body.name,
-      email: req.body.email,
+      ...req.body,
       password: hashedPassword,
-      status: "customer",
+      avatar: null,
+      role: "user",
     });
 
     // generate token
-    const token = jwt.sign({ id: user.id }, process.env.TOKEN_KEY);
+    const token = jwt.sign(
+      { id: newUser.id, role: newUser.role },
+      process.env.TOKEN_KEY
+    );
 
-    res.status(200).send({
-      status: "success...",
+    res.send({
+      status: "Success",
+      message: "Your account has succesfully created",
       data: {
-        name: newUser.name,
         email: newUser.email,
+        fullname: newUser.fullname,
         token,
       },
     });
@@ -55,31 +71,32 @@ exports.register = async (req, res) => {
     console.log(error);
     res.status(500).send({
       status: "failed",
-      message: "Server Error",
+      message: "server error",
     });
   }
 };
 
+// login 
 exports.login = async (req, res) => {
-  // our validation schema here
+  // create validation schema
   const schema = Joi.object({
-    email: Joi.string().email().min(6).required(),
-    password: Joi.string().min(6).required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().required(),
   });
 
-  // do validation and get error object from schema.validate
   const { error } = schema.validate(req.body);
 
-  // if error exist send validation error message
-  if (error)
+  if (error) {
     return res.status(400).send({
+      status: "Failed",
       error: {
         message: error.details[0].message,
       },
     });
+  }
 
   try {
-    const userExist = await user.findOne({
+    let userData = await user.findOne({
       where: {
         email: req.body.email,
       },
@@ -87,74 +104,57 @@ exports.login = async (req, res) => {
         exclude: ["createdAt", "updatedAt"],
       },
     });
-    // compare password between entered from client and from database
-    const isValid = await bcrypt.compare(req.body.password, userExist.password);
 
-    // check if not valid then return response with status 400 (bad request)
+    if (!userData) {
+      return res.status(400).send({
+        status: "failed",
+        message: "User not found",
+      });
+    }
+
+    const isValid = await bcrypt.compare(req.body.password, userData.password);
+
     if (!isValid) {
       return res.status(400).send({
         status: "failed",
-        message: "credential is invalid",
+        message: "Password is incorrect",
       });
     }
 
     // generate token
-    const token = jwt.sign({ id: userExist.id }, process.env.TOKEN_KEY);
+    const token = jwt.sign(
+      { id: userData.id, role: userData.role },
+      process.env.TOKEN_KEY
+    );
 
-    res.status(200).send({
-      status: "success...",
-      data: {
-        id: userExist.id,
-        name: userExist.name,
-        email: userExist.email,
-        status: userExist.status,
-        token,
-      },
+    userData = JSON.parse(JSON.stringify(userData));
+
+    const avatar = userData.avatar
+      ? process.env.PATH_AVATAR_IMAGES + userData.avatar
+      : process.env.PATH_AVATAR_IMAGES + " no-photo.jpg";
+
+    const newDataUser = {
+      id: userData.id,
+      fullname: userData.fullname,
+      email: userData.email,
+      gender: userData.gender,
+      phone: userData.phone,
+      address: userData.address,
+      role: userData.role,
+      avatar: avatar,
+      token,
+    };
+
+    res.send({
+      status: "success",
+      message: "Login succesful",
+      data: newDataUser,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       status: "failed",
-      message: "Server Error",
-    });
-  }
-};
-
-exports.checkAuth = async (req, res) => {
-  try {
-    const id = req.user.id;
-
-    const dataUser = await user.findOne({
-      where: {
-        id,
-      },
-      attributes: {
-        exclude: ["createdAt", "updatedAt", "password"],
-      },
-    });
-
-    if (!dataUser) {
-      return res.status(404).send({
-        status: "failed",
-      });
-    }
-
-    res.send({
-      status: "success...",
-      data: {
-        user: {
-          id: dataUser.id,
-          name: dataUser.name,
-          email: dataUser.email,
-          status: dataUser.status,
-        },
-      },
-    });
-  } catch (error) {
-    console.log(error);
-    res.status({
-      status: "failed",
-      message: "Server Error",
+      message: "server error",
     });
   }
 };

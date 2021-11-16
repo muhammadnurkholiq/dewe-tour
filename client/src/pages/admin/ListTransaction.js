@@ -1,9 +1,9 @@
 import React, { useState} from 'react';
 import {Table, Image, Modal, Button, ButtonGroup} from "react-bootstrap";
 import "../../assets/css/list_transaction.css";
-import Header2 from "../../components/header2";
 import Action from "../../assets/images/action.png"
-import ModalAprove from "../../components/user/payment_card";
+import ModalAprove from "../../components/admin/modal_aprove";
+import Footer from "../../components/footer2";
 
 function ListTransaction() {
 
@@ -14,9 +14,10 @@ function ListTransaction() {
 
     return (
         <div className="transaction">
-            {/* header  */}
-            <Header2 /> 
-            {/* ending header  */}
+            
+            <div expand="lg" className="navbar">
+                <div className="img-cover"></div>
+            </div>
 
             <div className="container">
 
@@ -50,16 +51,19 @@ function ListTransaction() {
                     <Modal.Body>
                         <ModalAprove />
                     </Modal.Body>
-                    <Modal.Footer>
-                    <Button className="btnCancel" onClick={handleClose}>
-                        Cancel
-                    </Button>
-                    <Button className="btnApprove" onClick={handleClose}>
-                        Approve
-                    </Button>
+                    <Modal.Footer style={{border:"none"}} className="modalFooter">
+                        <Button className="btnCancel" onClick={handleClose}>
+                            Cancel
+                        </Button>
+                        <Button className="btnApprove" onClick={handleClose}>
+                            Approve
+                        </Button>
                     </Modal.Footer>
                 </Modal>
             </div>
+            {/* footer  */}
+                <Footer />
+            {/* ending footer  */}
         </div>
     )
 }

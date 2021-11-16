@@ -1,10 +1,11 @@
 import React from 'react';
-import "../../assets/css/home.css";
+import "../../assets/css/home-admin.css";
 
 // component
 import Jumbotron from "../../components/jumbotron";
 import InfoCard from "../../components/info_card";
 import Tour from "../../components/admin/tour";
+import Footer from "../../components/footer";
 
 function Home() {
         return (
@@ -21,6 +22,10 @@ function Home() {
                 {/* Tour */}
                 <Tour />
                 {/* ending Tour */}
+                
+                {/* footer  */}
+                <Footer />
+                {/* ending footer  */}
             </div>
         );
 }

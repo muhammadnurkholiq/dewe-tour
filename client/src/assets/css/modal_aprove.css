@@ -1,4 +1,4 @@
-.payment .navbar {
+.payment1 .navbar {
     background-image: url(../images/bg-beach.jpg);
     height: 15vh;
     margin-top: -15vh;
@@ -6,22 +6,22 @@
     z-index: -1;
 }
 
-.payment .card-payment {
+.payment1 .card-payment {
     background-color: white;
     border-radius: 10px;
-    margin-top: 10vh;
+    margin-top: -2.2vh;
     padding: 20px;
 }
 
-.payment .card-payment .info1 {
+.payment1 .card-payment .info1 {
     margin-top: 5vh !important;
 }
 
-.payment .card-payment .info1 h3 {
+.payment1 .card-payment .info1 h3 {
     font-weight: 700;
 }
 
-.payment .card-payment .info1 .status-payment {
+.payment1 .card-payment .info1 .status-payment {
     width: 11vw;
     text-align: center;
     padding: 5px 0 1px 0;
@@ -29,11 +29,11 @@
     box-sizing: border-box
 }
 
-.payment .card-payment .info1 .status-payment h6 {
+.payment1 .card-payment .info1 .status-payment h6 {
     color: #FF9900;
 }
 
-.payment .card-payment .info2 {
+.payment1 .card-payment .info2 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -42,42 +42,52 @@
     margin-top: 13vh;
 }
 
-.payment .card-payment .info2 h1 {
+.payment1 .card-payment .info2 h1 {
     font-size: 20px;
     font-weight: 600;
 }
 
-.payment .card-payment .info2 p {
+.payment1 .card-payment .info2 p {
     font-size: 15px;
     color: #a5a4a4;
 }
 
-.payment .card-payment .info3 {
+.payment1 .card-payment .info3 {
     text-align: center;
 }
 
-.payment .card-payment .info3 h1 {
+.payment1 .card-payment .info3 h1 {
     font-weight: 700;
 }
 
-.payment .card-payment .info3 span {
+.payment1 .card-payment .info3 span {
     font-weight: 700;
     color: #868686;
 }
 
-.payment .card-payment .info3 .img-pay {
+.payment1 .card-payment .info3 .img-pay {
     width: 10vw;
     height: 30vh;
 }
 
-.payment .card-payment .info3 p {
+.payment1 .card-payment .info3 p {
     color: #aaa9a9;
     font-size: 15px;
     font-weight: 600;
 }
 
-.payment-list table td {
-    color: #bbbbbb;
+.payment-list .table .t-content {
+    border-top: 2px solid #b7b7b7a8;
+    border-bottom: 2px solid #b7b7b7a8;
+}
+
+.payment-list .table .table-bot {
+    border-bottom: 1px solid white;
+}
+
+.payment-list .table .table-bot .total {
+    text-align: right;
+    padding-right: 3.5vw;
 }
 
 .payment-list .total-payment {
